@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+    <link rel='stylesheet' href='stylesheets/home.css' />
+    <link rel='stylesheet' href='stylesheets/chart.css' />
+    <title>HOME</title>
+</head>
+
+<body>
+    <!-- Narbar-->
+    <%- include('../layouts/navbar') %>
+    <!-- end of Narbar-->
+<!-- LEFT -->
+    <main>
+        <div class="sidebar bg-light shadow">
+            <div class="flex-shrink-0 p-3 " >
+                <a  class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                    <span class="fs-5 fw-semibold"><i class='fas fa-user-astronaut' style='font-size:36px'></i> Profile</span>
+                </a>
+                
+                    <div class="card ">
+                        <div class="card-header">
+                            <img src="https://www.pngitem.com/pimgs/m/236-2366651_transparent-student-icon-png-transparent-student-png-icon.png" class="img-thumbnail" >
+                            
+                            <div class="card-body">
+                            <p class="card-text"><b><%= person.email%></b></p>
+                            </div>
+                        </div>
+                        <div class=" card-header bg-light ">
+                        </div>
+                <thead>
+                    <div class="card ">
+                        <div class="card-header">
+                            <i class="fas fa-school" style="font-size: 25px;;align-items: center; " ></i><b> Class</b>
+                            <br><br>
+                            <ul><p class="card-text"><b> </b>
+                                <% if (Object.keys(result).length != 0) { %>
+                                    <%= result[0].ClassName %> 
+                                <% } %>                                
+                            </p></ul>
+                            <button type="button" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal" data-bs-target="#Classjoin">
+                                <i class="fas fa-plus" style="font-size: 20px;;align-items: center;" ></i><b> Join Class</b>
+                              </button>
+
+                              
+                        </div>	
+                </thead>
+            </div>
+        </div>
+    </main>
+
+<!-- MID -->
+    <div class="content">
+        <div id = "content" class="container">
+            <h1 id = 'content'><i class="fas fa-heartbeat"></i> Skills </h1>   
+            <div class="box bg-light  mb-5 shadow" >
+                <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0" style="width: 100%;">
+                    
+                    <div class="row mb-3 ">
+                        <h5 for="inputEmail3" class="col-sm-2 col-form-label">Basic</h5>
+                        <div class="col-sm-10 " style="top:10px">
+                            <progress  max="100" value=<%= BasicPercent %>  class="html5 "></progress>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <h5 for="inputEmail3" class="col-sm-2 col-form-label">Tracing</h5>
+                         <div class="col-sm-10 " style="top:10px">
+                          <progress  max="100" value=<%= TracePercent %>  class="html5 "></progress>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <h5 for="inputEmail3" class="col-sm-2 col-form-label">Explaining</h5>
+                         <div class="col-sm-10 " style="top:10px">
+                          <progress  max="100" value=<%= ExplainPercent, %>   class="html5 "></progress>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <h5 for="inputEmail3" class="col-sm-2 col-form-label">Writing</h5>
+                         <div class="col-sm-10 " style="top:10px">
+                          <progress  max="100" value=<%= WritePercent %>  class="html5 "></progress>
+                        </div>
+                    </div>
+                                        
+                </div>
+            </div>
+        </div>
+
+
+        <div id = "content" class="container">
+            <h1 id = 'content'><i class="far fa-lightbulb"></i> Project Unlock  </h1>
+            <div class="box bg-light  mb-5 shadow" >
+                <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0" style="width: 100%;">
+                   
+                    <div class="row">
+                        <div class="col">
+                            <div class="card-body">
+                                <h5 class="card-title">TicTacToe </h5>
+                                <div class="pie animate" style="--p:<%= TicTacToePercent %> ;--c:#6c757d"> <%= TicTacToePercent %>%</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card-body">
+                                <h5 class="card-title">Library System</h5>
+                                <div class="pie animate" style="--p:<%= Library_SystemPercent %>;--c:#6c757d"> <%= Library_SystemPercent %>%</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card-body">
+                                <h5 class="card-title">Roshambo</h5> 
+                                <div class="pie animate" style="--p:<%=RoshamboPercent %>;--c:#6c757d"> <%=RoshamboPercent %>%</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card-body">
+                                <h5 class="card-title">Calculator</h5>
+                                <div class="pie animate" style="--p:<%=CalendarPercent %>;--c:#6c757d"> <%=CalendarPercent %>%</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card-body">
+                                <h5 class="card-title">Calendar</h5>
+                                <div class="pie animate" style="--p:<%=CalculatorPercent %>;--c:#6c757d"> <%=CalculatorPercent %>%</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div id = "content" class="container">
+                <h1 id = 'content'><i class="far fa-sun"></i> Recommendation </h1>
+                <div class="box bg-light  mb-5 shadow" >
+                    <ul>
+                        <h1 id = 'content'> Content </h1> 
+                        <button onclick="window.location.href='/course-syntax'" type="button" class="btn btn-dark ">Syntax</button>
+                    </ul>
+                    <ul>
+                        <h1 id = 'content'> Project </h1> 
+                        <button onclick="window.location.href='/project'" type="button" class="btn btn-dark ">Tic-tac-toe</button>
+                    </ul>
+                    <ul>
+                        <h1 id = 'content'> Quiz </h1> 
+                        <button onclick="window.location.href='/course-syntax-quiz'" type="button" class="btn btn-outline-secondary ">Syntax Quiz</button>
+                    </ul>
+                    
+                    
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    
+
+
+    <!-- Modal -->
+<div class="modal fade" id="Classjoin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Class Join</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <form action="/joinclass" method="post" autocomplete="off">
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="classCode" class="form-label"><b>Class Token</b></label>
+                    <input type="text" class="form-control" id="classCode" name="classToken" placeholder="Token สำหรับเข้าชั้นเรียน">
+                    <div  class="form-text">**สามารถรับโค้ดจากอาจารย์ผู้สอน</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-dark">Submit</button>
+            </div>
+        </form>       
+
+      </div>
+    </div>
+  </div>
+  
+
+<%- include('../layouts/footer') %>
